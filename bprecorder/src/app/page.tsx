@@ -8,6 +8,7 @@ export default function Home() {
   const [heartRate, setHeartRate] = useState("");
 
   const handleSubmit = () => {
+    const uniqueId = crypto.randomUUID();
     if (!name || !systolic || !diastolic || !heartRate) {
       alert("Please fill in all fields");
       return;
@@ -24,6 +25,7 @@ export default function Home() {
 
     try {
       const params = new URLSearchParams({
+        uniqueId,
         name,
         systolic,
         diastolic,
